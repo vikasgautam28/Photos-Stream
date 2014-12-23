@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2F658830-4018-4D42-9C6F-3C9135533777</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Photos Stream</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>CC938B1CF87660644F6A3A154B5DCDC126F99C65</key>
+		<string>github.com:vikasgautam28/Photos-Stream.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Photos Stream.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>CC938B1CF87660644F6A3A154B5DCDC126F99C65</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:vikasgautam28/Photos-Stream.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>CC938B1CF87660644F6A3A154B5DCDC126F99C65</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>CC938B1CF87660644F6A3A154B5DCDC126F99C65</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Photos%20Stream</string>
+		</dict>
+	</array>
+</dict>
+</plist>
