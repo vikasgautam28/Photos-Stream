@@ -9,6 +9,8 @@
 #import "FeedTableCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "Constants.h"
+#define IMAGE_FRAME_REDUCE_FACTOR 0.5
+#define DESCRIPTION_LABEL_HEIGHT 20
 @interface FeedTableCell()
 
 @property (nonatomic,strong) UIView *containerView;
@@ -32,10 +34,10 @@
         containerView.layer.cornerRadius=3.f;
         containerView.layer.masksToBounds=YES;
         self.selectionStyle=UITableViewCellSelectionStyleNone;
-        self.descriptionLabel=[[UILabel alloc] initWithFrame:CGRectMake(FEED_CELL_SIDE_PADDING, 0, SCREEN_WIDTH-4*FEED_CELL_SIDE_PADDING, 20)];
+        self.descriptionLabel=[[UILabel alloc] initWithFrame:CGRectMake(FEED_CELL_SIDE_PADDING, 0, SCREEN_WIDTH-4*FEED_CELL_SIDE_PADDING, DESCRIPTION_LABEL_HEIGHT)];
         self.descriptionLabel.textAlignment=NSTextAlignmentCenter;
         [self.descriptionLabel setFont:[UIFont fontWithName:FONT size:14]];
-        self.cellImageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, self.descriptionLabel.frame.size.height, SCREEN_WIDTH-2*FEED_CELL_SIDE_PADDING, FEED_CELL_HEIGHT-FEED_CELL_TOP_PADDING-self.descriptionLabel.frame.size.height)];
+        self.cellImageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, DESCRIPTION_LABEL_HEIGHT, SCREEN_WIDTH-2*FEED_CELL_SIDE_PADDING, FEED_CELL_HEIGHT-FEED_CELL_TOP_PADDING-DESCRIPTION_LABEL_HEIGHT)];
         
         self.cellImageView.layer.cornerRadius=3.f;
         
@@ -54,13 +56,27 @@
 -(void)updateCellForReuseWithJSON:(NSDictionary*) dictionary {
     self.cellImageView.image=nil;
     self.descriptionLabel.text=[dictionary objectForKey:@"title"];
-    
+    CGRect imageViewFrame=self.cellImageView.frame;
     [self.cellImageView sd_setImageWithURL:[NSURL URLWithString:[dictionary objectForKey:@"url"]]
                  placeholderImage:nil
                         completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageUrl) {
                             
-                            
-                            //[loaderView stopAnimating];
+                            if(image && cacheType==SDImageCacheTypeNone) {
+                                self.cellImageView.frame=CGRectMake(0, 0, imageViewFrame.size.width*IMAGE_FRAME_REDUCE_FACTOR, imageViewFrame.size.height*IMAGE_FRAME_REDUCE_FACTOR);
+                                self.cellImageView.alpha = 0.0;
+                                [UIView transitionWithView:self.cellImageView
+                                                  duration:0.5
+                                                   options:UIViewAnimationOptionTransitionCrossDissolve
+                                                animations:^{
+                                                    [self.cellImageView setImage:image];
+                                                    self.cellImageView.alpha = 1.0;
+                                                    self.cellImageView.frame=imageViewFrame;
+                                                } completion:NULL];
+                            } else {
+                                self.cellImageView.alpha=1.0;
+                                [self.cellImageView setImage:image];
+                            }
+
                             
                         }];
 

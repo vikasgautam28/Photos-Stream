@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "FeedViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 @interface AppDelegate ()
 @property (nonatomic,strong) UINavigationController *navController;
 @property (nonatomic,strong) FeedViewController *feedVC;
@@ -59,6 +60,10 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
+    
+    SDImageCache *imageCache = [SDImageCache sharedImageCache];
+    [imageCache clearMemory];
+    [imageCache clearDisk];
     [self saveContext];
 }
 

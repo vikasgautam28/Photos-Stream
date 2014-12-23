@@ -73,7 +73,13 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return FEED_CELL_HEIGHT;
+    if(indexPath.row==[self.dataArray count]-1) {
+        
+        return FEED_CELL_TOP_PADDING+FEED_CELL_HEIGHT;
+    } else {
+    
+        return FEED_CELL_HEIGHT;
+    }
 }
 
 
