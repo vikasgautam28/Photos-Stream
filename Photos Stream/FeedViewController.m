@@ -82,6 +82,11 @@
     }
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [((FeedTableCell*)[tableView cellForRowAtIndexPath:indexPath]) animateImageView];
+}
+
 
 -(void) loadData {
     

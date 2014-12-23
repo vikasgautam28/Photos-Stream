@@ -10,4 +10,5 @@
 
 @interface FeedTableCell : UITableViewCell
 -(void)updateCellForReuseWithJSON:(NSDictionary*) dictionary;
+-(void) animateImageView;
 @end

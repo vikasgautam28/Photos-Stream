@@ -16,11 +16,14 @@
 @property (nonatomic,strong) UIView *containerView;
 @property (nonatomic,strong) UILabel *descriptionLabel;
 @property (nonatomic,strong) UIImageView *cellImageView;
+@property (assign, nonatomic) CATransform3D initialTransformation;
 
 @end
 
 @implementation FeedTableCell
 @synthesize containerView;
+@synthesize initialTransformation;
+
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     
     self=[super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -48,9 +51,24 @@
         [containerView addSubview:self.descriptionLabel];
         [containerView addSubview:self.cellImageView];
         
+        
+        CGFloat rotationAngleRadians = M_PI;
+        CATransform3D transform = CATransform3DIdentity;
+        transform = CATransform3DRotate(transform, rotationAngleRadians, 1.0, 0.0, 0.0);
+        initialTransformation = transform;
+        
     }
     
     return self;
+}
+
+-(void) animateImageView {
+    
+                    self.cellImageView.layer.transform = self.initialTransformation;
+    
+                    [UIView animateWithDuration:1 animations:^{
+                        self.cellImageView.layer.transform = CATransform3DIdentity;
+                    }];
 }
 
 -(void)updateCellForReuseWithJSON:(NSDictionary*) dictionary {
