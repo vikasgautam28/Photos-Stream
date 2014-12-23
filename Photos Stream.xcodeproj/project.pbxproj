@@ -10,11 +10,10 @@
 		1DA06E581A498E6D008D5718 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA06E571A498E6D008D5718 /* main.m */; };
 		1DA06E5B1A498E6D008D5718 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA06E5A1A498E6D008D5718 /* AppDelegate.m */; };
 		1DA06E5E1A498E6D008D5718 /* Photos_Stream.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1DA06E5C1A498E6D008D5718 /* Photos_Stream.xcdatamodeld */; };
-		1DA06E611A498E6D008D5718 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA06E601A498E6D008D5718 /* ViewController.m */; };
-		1DA06E641A498E6D008D5718 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DA06E621A498E6D008D5718 /* Main.storyboard */; };
 		1DA06E661A498E6D008D5718 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DA06E651A498E6D008D5718 /* Images.xcassets */; };
 		1DA06E691A498E6D008D5718 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DA06E671A498E6D008D5718 /* LaunchScreen.xib */; };
 		1DA06E751A498E6E008D5718 /* Photos_StreamTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA06E741A498E6E008D5718 /* Photos_StreamTests.m */; };
+		1DA06E801A499AA9008D5718 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA06E7F1A499AA9008D5718 /* FeedViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,14 +33,13 @@
 		1DA06E591A498E6D008D5718 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1DA06E5A1A498E6D008D5718 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1DA06E5D1A498E6D008D5718 /* Photos_Stream.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Photos_Stream.xcdatamodel; sourceTree = "<group>"; };
-		1DA06E5F1A498E6D008D5718 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1DA06E601A498E6D008D5718 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		1DA06E631A498E6D008D5718 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1DA06E651A498E6D008D5718 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1DA06E681A498E6D008D5718 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		1DA06E6E1A498E6E008D5718 /* Photos StreamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Photos StreamTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DA06E731A498E6E008D5718 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1DA06E741A498E6E008D5718 /* Photos_StreamTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Photos_StreamTests.m; sourceTree = "<group>"; };
+		1DA06E7E1A499AA9008D5718 /* FeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
+		1DA06E7F1A499AA9008D5718 /* FeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,13 +83,12 @@
 			children = (
 				1DA06E591A498E6D008D5718 /* AppDelegate.h */,
 				1DA06E5A1A498E6D008D5718 /* AppDelegate.m */,
-				1DA06E5F1A498E6D008D5718 /* ViewController.h */,
-				1DA06E601A498E6D008D5718 /* ViewController.m */,
-				1DA06E621A498E6D008D5718 /* Main.storyboard */,
 				1DA06E651A498E6D008D5718 /* Images.xcassets */,
 				1DA06E671A498E6D008D5718 /* LaunchScreen.xib */,
 				1DA06E5C1A498E6D008D5718 /* Photos_Stream.xcdatamodeld */,
 				1DA06E551A498E6D008D5718 /* Supporting Files */,
+				1DA06E7E1A499AA9008D5718 /* FeedViewController.h */,
+				1DA06E7F1A499AA9008D5718 /* FeedViewController.m */,
 			);
 			path = "Photos Stream";
 			sourceTree = "<group>";
@@ -202,7 +199,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DA06E641A498E6D008D5718 /* Main.storyboard in Resources */,
 				1DA06E691A498E6D008D5718 /* LaunchScreen.xib in Resources */,
 				1DA06E661A498E6D008D5718 /* Images.xcassets in Resources */,
 			);
@@ -224,7 +220,7 @@
 			files = (
 				1DA06E5E1A498E6D008D5718 /* Photos_Stream.xcdatamodeld in Sources */,
 				1DA06E5B1A498E6D008D5718 /* AppDelegate.m in Sources */,
-				1DA06E611A498E6D008D5718 /* ViewController.m in Sources */,
+				1DA06E801A499AA9008D5718 /* FeedViewController.m in Sources */,
 				1DA06E581A498E6D008D5718 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,14 +244,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1DA06E621A498E6D008D5718 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1DA06E631A498E6D008D5718 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1DA06E671A498E6D008D5718 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

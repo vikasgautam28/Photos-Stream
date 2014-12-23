@@ -7,17 +7,35 @@
 //
 
 #import "AppDelegate.h"
-
+#import "FeedViewController.h"
 @interface AppDelegate ()
+@property (nonatomic,strong) UINavigationController *navController;
+@property (nonatomic,strong) FeedViewController *feedVC;
 
 @end
 
 @implementation AppDelegate
-
+@synthesize navController;
+@synthesize feedVC;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    
+    [self addRootViewController];
+    
     return YES;
+}
+
+
+-(void) addRootViewController {
+    
+    
+    feedVC=[[FeedViewController alloc] init];
+    
+    navController=[[UINavigationController alloc] initWithRootViewController:feedVC];
+    
+    self.window.rootViewController=feedVC;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

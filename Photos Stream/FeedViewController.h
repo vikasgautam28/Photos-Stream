@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  FeedViewController.h
 //  Photos Stream
 //
 //  Created by Vikas on 23/12/14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface FeedViewController : UIViewController
 
 @end
-
