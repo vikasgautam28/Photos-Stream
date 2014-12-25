@@ -10,7 +10,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "Constants.h"
 #import "AppDelegate.h"
-#define IMAGE_FRAME_REDUCE_FACTOR 0.5
+#define IMAGE_FRAME_REDUCE_FACTOR 0.6
 
 @interface FeedTableCell() {
     UIActivityIndicatorView * spinner;
@@ -95,7 +95,7 @@
                             if(image && cacheType==SDImageCacheTypeNone) {
                                 ((AppDelegate*)[[UIApplication sharedApplication] delegate]).totalImagesLoaded=@([[((AppDelegate*)[[UIApplication sharedApplication] delegate]) totalImagesLoaded] intValue]+1);
                                 
-                                self.cellImageView.frame=CGRectMake(0, 0, imageViewFrame.size.width*IMAGE_FRAME_REDUCE_FACTOR, imageViewFrame.size.height*IMAGE_FRAME_REDUCE_FACTOR);
+                                self.cellImageView.frame=CGRectMake(50, 50, imageViewFrame.size.width*IMAGE_FRAME_REDUCE_FACTOR, imageViewFrame.size.height*IMAGE_FRAME_REDUCE_FACTOR);
                                 self.cellImageView.alpha = 0.0;
                                 [UIView transitionWithView:self.cellImageView
                                                   duration:0.5
