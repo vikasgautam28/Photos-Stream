@@ -13,7 +13,8 @@
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 #define FEED_CELL_TOP_PADDING 10
 #define FEED_CELL_SIDE_PADDING 10
-#define FEED_CELL_HEIGHT 250
+#define FEED_CELL_HEIGHT 280
+#define DESCRIPTION_LABEL_HEIGHT 50
 #define STATUSBAR_HEIGHT [UIApplication sharedApplication].statusBarFrame.size.height
 #define FONT @"HelveticaNeue"
 @interface Constants : NSObject

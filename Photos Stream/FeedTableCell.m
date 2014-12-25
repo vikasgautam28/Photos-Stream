@@ -9,8 +9,9 @@
 #import "FeedTableCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "Constants.h"
+
 #define IMAGE_FRAME_REDUCE_FACTOR 0.5
-#define DESCRIPTION_LABEL_HEIGHT 20
+
 @interface FeedTableCell()
 
 @property (nonatomic,strong) UIView *containerView;
@@ -71,11 +72,13 @@
                     }];
 }
 
--(void)updateCellForReuseWithJSON:(NSDictionary*) dictionary {
+-(void)updateCellForReuseWithPhoto:(Photo*) photo {
     self.cellImageView.image=nil;
-    self.descriptionLabel.text=[dictionary objectForKey:@"title"];
+    self.descriptionLabel.text=photo.title;//[dictionary objectForKey:@"title"];
     CGRect imageViewFrame=self.cellImageView.frame;
-    [self.cellImageView sd_setImageWithURL:[NSURL URLWithString:[dictionary objectForKey:@"url"]]
+    
+    
+    [self.cellImageView sd_setImageWithURL:[NSURL URLWithString:photo.url]
                  placeholderImage:nil
                         completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageUrl) {
                             

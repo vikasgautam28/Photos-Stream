@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Photo.h"
 @interface FeedTableCell : UITableViewCell
--(void)updateCellForReuseWithJSON:(NSDictionary*) dictionary;
+-(void)updateCellForReuseWithPhoto:(Photo*) photo;
 -(void) animateImageView;
 @end

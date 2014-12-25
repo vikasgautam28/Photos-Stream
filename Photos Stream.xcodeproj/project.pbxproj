@@ -12,6 +12,9 @@
 		1D7FEEB91A49ADEF005DEB80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D7FEEB81A49ADEF005DEB80 /* Main.storyboard */; };
 		1D7FEEBC1A49B3F6005DEB80 /* CommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7FEEBB1A49B3F6005DEB80 /* CommonFunctions.m */; };
 		1D7FEEBF1A49B620005DEB80 /* FeedTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7FEEBE1A49B620005DEB80 /* FeedTableCell.m */; };
+		1D7FEECB1A4C27DB005DEB80 /* LoadData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7FEECA1A4C27DB005DEB80 /* LoadData.m */; };
+		1D7FEECE1A4C3056005DEB80 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7FEECD1A4C3056005DEB80 /* Photo.m */; };
+		1D7FEED11A4C3071005DEB80 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7FEED01A4C3071005DEB80 /* User.m */; };
 		1DA06E581A498E6D008D5718 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA06E571A498E6D008D5718 /* main.m */; };
 		1DA06E5B1A498E6D008D5718 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA06E5A1A498E6D008D5718 /* AppDelegate.m */; };
 		1DA06E5E1A498E6D008D5718 /* Photos_Stream.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1DA06E5C1A498E6D008D5718 /* Photos_Stream.xcdatamodeld */; };
@@ -43,6 +46,12 @@
 		1D7FEEBB1A49B3F6005DEB80 /* CommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonFunctions.m; sourceTree = "<group>"; };
 		1D7FEEBD1A49B620005DEB80 /* FeedTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedTableCell.h; sourceTree = "<group>"; };
 		1D7FEEBE1A49B620005DEB80 /* FeedTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedTableCell.m; sourceTree = "<group>"; };
+		1D7FEEC91A4C27DB005DEB80 /* LoadData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadData.h; sourceTree = "<group>"; };
+		1D7FEECA1A4C27DB005DEB80 /* LoadData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadData.m; sourceTree = "<group>"; };
+		1D7FEECC1A4C3056005DEB80 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		1D7FEECD1A4C3056005DEB80 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
+		1D7FEECF1A4C3071005DEB80 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		1D7FEED01A4C3071005DEB80 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		1DA06E521A498E6D008D5718 /* Photos Stream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Photos Stream.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DA06E561A498E6D008D5718 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1DA06E571A498E6D008D5718 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -122,6 +131,12 @@
 				1D7FEEBB1A49B3F6005DEB80 /* CommonFunctions.m */,
 				1D7FEEBD1A49B620005DEB80 /* FeedTableCell.h */,
 				1D7FEEBE1A49B620005DEB80 /* FeedTableCell.m */,
+				1D7FEEC91A4C27DB005DEB80 /* LoadData.h */,
+				1D7FEECA1A4C27DB005DEB80 /* LoadData.m */,
+				1D7FEECC1A4C3056005DEB80 /* Photo.h */,
+				1D7FEECD1A4C3056005DEB80 /* Photo.m */,
+				1D7FEECF1A4C3071005DEB80 /* User.h */,
+				1D7FEED01A4C3071005DEB80 /* User.m */,
 			);
 			path = "Photos Stream";
 			sourceTree = "<group>";
@@ -308,10 +323,13 @@
 				1DA06E5E1A498E6D008D5718 /* Photos_Stream.xcdatamodeld in Sources */,
 				1D7FEEB21A49A583005DEB80 /* PSObjectManager.m in Sources */,
 				1DA06E5B1A498E6D008D5718 /* AppDelegate.m in Sources */,
+				1D7FEECB1A4C27DB005DEB80 /* LoadData.m in Sources */,
 				1DA06E801A499AA9008D5718 /* FeedViewController.m in Sources */,
 				1DA06E581A498E6D008D5718 /* main.m in Sources */,
+				1D7FEED11A4C3071005DEB80 /* User.m in Sources */,
 				1D7FEEB51A49A86A005DEB80 /* Constants.m in Sources */,
 				1D7FEEBF1A49B620005DEB80 /* FeedTableCell.m in Sources */,
+				1D7FEECE1A4C3056005DEB80 /* Photo.m in Sources */,
 				1D7FEEBC1A49B3F6005DEB80 /* CommonFunctions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

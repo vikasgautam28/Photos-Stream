@@ -11,32 +11,34 @@
 #import "PSObjectManager.h"
 #import "CommonFunctions.h"
 #import "FeedTableCell.h"
-
+#import "AppDelegate.h"
+#import "LoadData.h"
+#import "Photo.h"
 #define CELL_REUSE_IDENTIFIER @"feedCell"
-@interface FeedViewController()<PSObjectDelegate,UITableViewDataSource,UITableViewDelegate>
-
-
-@property (nonatomic,strong) PSObjectManager *objectManager;
+@interface FeedViewController()<UITableViewDataSource,UITableViewDelegate,LoadDataDelegate>
 @property (nonatomic,strong) UITableView *feedTableView;
 @property (nonatomic,strong) NSArray *dataArray;
+@property (nonatomic,strong) LoadData *loadData;
 @end
 
 @implementation FeedViewController
-@synthesize objectManager;
+
 @synthesize feedTableView;
 
 -(void)viewDidLoad {
     [super viewDidLoad];
     self.dataArray=[[NSArray alloc] init];
-    objectManager=[PSObjectManager getManager];
     
-    [objectManager setDelegate:self];
-    [self loadData];
+    self.loadData=[[LoadData alloc] init];
+    [self.loadData setDelegate:self];
+    
+    [self.loadData retriveObjects];
     
     [self addFeedTableView];
     
     [self.view setBackgroundColor:[CommonFunctions colorWithHexString:LIGHT_GRAY_COLOR]];
 }
+
 
 -(void)addFeedTableView {
     
@@ -54,6 +56,13 @@
 
 }
 
+-(void)retrivedObjects:(NSArray *)dataArray {
+    
+    self.dataArray=dataArray;
+    
+    [self.feedTableView reloadData];
+}
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
     return 1;
@@ -67,7 +76,9 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     FeedTableCell *cell=[self.feedTableView dequeueReusableCellWithIdentifier:CELL_REUSE_IDENTIFIER forIndexPath:indexPath];
-    [cell updateCellForReuseWithJSON:[self.dataArray objectAtIndex:indexPath.row]];
+    [cell updateCellForReuseWithPhoto:[self.dataArray objectAtIndex:indexPath.row]];
+ 
+    
     return cell;
 }
 
@@ -88,21 +99,6 @@
 }
 
 
--(void) loadData {
-    
-    [objectManager getObjectsFromURL:URL withParams:@{}];
-}
-
--(void)didLoadObjectsfromURL:(NSString *)dataURL fetchedResponseObject:(id)responseObject {
-    
-    self.dataArray=[responseObject objectForKey:@"photos"];
-    [self.feedTableView reloadData];
-    NSLog(@"success: %@",responseObject);
-}
-
--(void) didFailToLoadObjectsfromURL:(NSString *)dataURL fetchedResponseObject:(id)error {
-    NSLog(@"Failure: %@",error);
-}
 
 -(void)didReceiveMemoryWarning {
     
