@@ -39,9 +39,9 @@
 /* Begin PBXFileReference section */
 		1D7FEEB01A49A583005DEB80 /* PSObjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSObjectManager.h; sourceTree = "<group>"; };
 		1D7FEEB11A49A583005DEB80 /* PSObjectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSObjectManager.m; sourceTree = "<group>"; };
-		1D7FEEB31A49A86A005DEB80 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		1D7FEEB41A49A86A005DEB80 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
-		1D7FEEB81A49ADEF005DEB80 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = "Photos Stream/Main.storyboard"; sourceTree = "<group>"; };
+		1D7FEEB31A49A86A005DEB80 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../Constants.h; sourceTree = "<group>"; };
+		1D7FEEB41A49A86A005DEB80 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constants.m; path = ../Constants.m; sourceTree = "<group>"; };
+		1D7FEEB81A49ADEF005DEB80 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		1D7FEEBA1A49B3F6005DEB80 /* CommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonFunctions.h; sourceTree = "<group>"; };
 		1D7FEEBB1A49B3F6005DEB80 /* CommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonFunctions.m; sourceTree = "<group>"; };
 		1D7FEEBD1A49B620005DEB80 /* FeedTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedTableCell.h; sourceTree = "<group>"; };
@@ -65,7 +65,7 @@
 		1DA06E741A498E6E008D5718 /* Photos_StreamTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Photos_StreamTests.m; sourceTree = "<group>"; };
 		1DA06E7E1A499AA9008D5718 /* FeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
 		1DA06E7F1A499AA9008D5718 /* FeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
-		1DA06E811A49A135008D5718 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		1DA06E811A49A135008D5718 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		45170C78E13F855458AC7037 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		78E38B101EFEAB26CE6EA0C9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		88F36549F81899B1603C27BB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -90,13 +90,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D7FEED21A4C674D005DEB80 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1DA06E7F1A499AA9008D5718 /* FeedViewController.m */,
+				1DA06E7E1A499AA9008D5718 /* FeedViewController.h */,
+				1D7FEEBD1A49B620005DEB80 /* FeedTableCell.h */,
+				1D7FEEBE1A49B620005DEB80 /* FeedTableCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		1D7FEED31A4C67EE005DEB80 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1DA06E5C1A498E6D008D5718 /* Photos_Stream.xcdatamodeld */,
+				1D7FEECC1A4C3056005DEB80 /* Photo.h */,
+				1D7FEECD1A4C3056005DEB80 /* Photo.m */,
+				1D7FEECF1A4C3071005DEB80 /* User.h */,
+				1D7FEED01A4C3071005DEB80 /* User.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		1DA06E491A498E6D008D5718 = {
 			isa = PBXGroup;
 			children = (
-				1D7FEEB81A49ADEF005DEB80 /* Main.storyboard */,
-				1D7FEEB31A49A86A005DEB80 /* Constants.h */,
-				1D7FEEB41A49A86A005DEB80 /* Constants.m */,
-				1DA06E811A49A135008D5718 /* Podfile */,
 				1DA06E541A498E6D008D5718 /* Photos Stream */,
 				1DA06E711A498E6E008D5718 /* Photos StreamTests */,
 				1DA06E531A498E6D008D5718 /* Products */,
@@ -117,26 +136,23 @@
 		1DA06E541A498E6D008D5718 /* Photos Stream */ = {
 			isa = PBXGroup;
 			children = (
+				1D7FEEB81A49ADEF005DEB80 /* Main.storyboard */,
+				1DA06E811A49A135008D5718 /* Podfile */,
+				1D7FEEB31A49A86A005DEB80 /* Constants.h */,
+				1D7FEEB41A49A86A005DEB80 /* Constants.m */,
 				1DA06E591A498E6D008D5718 /* AppDelegate.h */,
 				1DA06E5A1A498E6D008D5718 /* AppDelegate.m */,
 				1DA06E651A498E6D008D5718 /* Images.xcassets */,
 				1DA06E671A498E6D008D5718 /* LaunchScreen.xib */,
-				1DA06E5C1A498E6D008D5718 /* Photos_Stream.xcdatamodeld */,
 				1DA06E551A498E6D008D5718 /* Supporting Files */,
-				1DA06E7E1A499AA9008D5718 /* FeedViewController.h */,
-				1DA06E7F1A499AA9008D5718 /* FeedViewController.m */,
+				1D7FEED21A4C674D005DEB80 /* View */,
 				1D7FEEB01A49A583005DEB80 /* PSObjectManager.h */,
 				1D7FEEB11A49A583005DEB80 /* PSObjectManager.m */,
 				1D7FEEBA1A49B3F6005DEB80 /* CommonFunctions.h */,
 				1D7FEEBB1A49B3F6005DEB80 /* CommonFunctions.m */,
-				1D7FEEBD1A49B620005DEB80 /* FeedTableCell.h */,
-				1D7FEEBE1A49B620005DEB80 /* FeedTableCell.m */,
 				1D7FEEC91A4C27DB005DEB80 /* LoadData.h */,
 				1D7FEECA1A4C27DB005DEB80 /* LoadData.m */,
-				1D7FEECC1A4C3056005DEB80 /* Photo.h */,
-				1D7FEECD1A4C3056005DEB80 /* Photo.m */,
-				1D7FEECF1A4C3071005DEB80 /* User.h */,
-				1D7FEED01A4C3071005DEB80 /* User.m */,
+				1D7FEED31A4C67EE005DEB80 /* Model */,
 			);
 			path = "Photos Stream";
 			sourceTree = "<group>";

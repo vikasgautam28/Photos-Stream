@@ -22,7 +22,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    
+    self.totalImagesLoaded=@(0);
     [self addRootViewController];
     
     return YES;
@@ -61,9 +61,13 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     
-    SDImageCache *imageCache = [SDImageCache sharedImageCache];
-    [imageCache clearMemory];
-    [imageCache clearDisk];
+//    SDImageCache *imageCache = [SDImageCache sharedImageCache];
+//    [imageCache clearMemory];
+//    [imageCache clearDisk];
+//    [[[SDWebImageManager sharedManager] imageCache] clearDisk];
+//    [[[SDWebImageManager sharedManager] imageCache] clearMemory];
+    
+    
     [self saveContext];
 }
 

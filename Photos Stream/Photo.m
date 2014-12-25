@@ -11,7 +11,7 @@
 
 @implementation Photo
 
-@dynamic id;
+@dynamic photoId;
 @dynamic url;
 @dynamic title;
 @dynamic sizeBytes;

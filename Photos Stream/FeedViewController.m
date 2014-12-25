@@ -15,26 +15,40 @@
 #import "LoadData.h"
 #import "Photo.h"
 #define CELL_REUSE_IDENTIFIER @"feedCell"
-@interface FeedViewController()<UITableViewDataSource,UITableViewDelegate,LoadDataDelegate>
+@interface FeedViewController()<UITableViewDataSource,UITableViewDelegate,LoadDataDelegate> {
+    NSManagedObjectContext *context;
+    BOOL statisticsPrinted;
+}
 @property (nonatomic,strong) UITableView *feedTableView;
 @property (nonatomic,strong) NSArray *dataArray;
 @property (nonatomic,strong) LoadData *loadData;
+@property (nonatomic,strong) UIActivityIndicatorView *spinner;
 @end
 
 @implementation FeedViewController
-
+@synthesize spinner;
 @synthesize feedTableView;
 
 -(void)viewDidLoad {
     [super viewDidLoad];
+    statisticsPrinted=false;
+    context = [((AppDelegate*)[[UIApplication sharedApplication] delegate]) managedObjectContext];
+    
     self.dataArray=[[NSArray alloc] init];
     
     self.loadData=[[LoadData alloc] init];
     [self.loadData setDelegate:self];
     
+    spinner=[[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+    spinner.activityIndicatorViewStyle=UIActivityIndicatorViewStyleGray;
+    spinner.center=self.view.center;
+    [self.view addSubview:spinner];
+    [spinner startAnimating];
     [self.loadData retriveObjects];
     
     [self addFeedTableView];
+    
+    [self.view bringSubviewToFront:spinner];
     
     [self.view setBackgroundColor:[CommonFunctions colorWithHexString:LIGHT_GRAY_COLOR]];
 }
@@ -57,7 +71,7 @@
 }
 
 -(void)retrivedObjects:(NSArray *)dataArray {
-    
+    [spinner stopAnimating];
     self.dataArray=dataArray;
     
     [self.feedTableView reloadData];
@@ -82,6 +96,19 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if(indexPath.row==[self.dataArray count]-1 && !statisticsPrinted) {
+        int totalimagesLoaded=[[((AppDelegate*)[[UIApplication sharedApplication] delegate]) totalImagesLoaded] intValue];
+        
+        if(totalimagesLoaded==[self.dataArray count]) {
+            
+            statisticsPrinted=true;
+            [self generateStatistics];
+        }
+    }
+}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if(indexPath.row==[self.dataArray count]-1) {
@@ -98,6 +125,51 @@
     [((FeedTableCell*)[tableView cellForRowAtIndexPath:indexPath]) animateImageView];
 }
 
+-(void) generateStatistics {
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:[NSEntityDescription entityForName:@"User" inManagedObjectContext:context]];
+    
+    NSError *error;
+    
+    NSArray *results=[context executeFetchRequest:request error:&error];
+    
+    
+    
+    for(User *user in results) {
+        NSLog(@"User Name: user %@",user.userNumber);
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        [request setEntity:[NSEntityDescription entityForName:@"Photo" inManagedObjectContext:context]];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"user == %@",user];
+        [request setPredicate:predicate];
+        NSError *error;
+        
+        NSArray *photos=[context executeFetchRequest:request error:&error];
+
+        NSLog(@"No. of Entries: %lu",(unsigned long)[photos count]);
+        int totalImageSize=0;
+        int greatestImageWidth=0;
+        if([photos count]>0) {
+            
+            for(Photo *photo in photos) {
+                
+                totalImageSize+=[photo.sizeBytes intValue];
+                
+                if([photo.width integerValue]>=greatestImageWidth) {
+                    
+                    greatestImageWidth=[photo.width intValue];
+                }
+            }
+            
+        }
+        
+        NSLog(@"Avg. Image Size (kb) : %lu",(totalImageSize/1024)/[photos count]);
+        NSLog(@"Greatest Photo width : %d",greatestImageWidth);
+        
+        
+        
+    }
+}
 
 
 -(void)didReceiveMemoryWarning {

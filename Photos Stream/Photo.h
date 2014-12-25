@@ -12,7 +12,7 @@
 
 @interface Photo : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * id;
+@property (nonatomic, retain) NSNumber * photoId;
 @property (nonatomic, retain) NSString * url;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSNumber * sizeBytes;

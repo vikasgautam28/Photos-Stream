@@ -72,14 +72,6 @@
         
         [self loadData];
     }
-    
-//    for (NSManagedObject *info in fetchedObjects) {
-//        NSLog(@"Name: %@", [info valueForKey:@"name"]);
-//        NSManagedObject *details = [info valueForKey:@"details"];
-//        NSLog(@"Zip: %@", [details valueForKey:@"zip"]);
-//    }
-
-    
 }
 
 -(void) loadData {
@@ -100,14 +92,29 @@
         NSManagedObject *photo = [NSEntityDescription
                                   insertNewObjectForEntityForName:@"Photo"
                                   inManagedObjectContext:context];
-        [photo setValue:[imageInfo objectForKey:@"id"] forKey:@"id"];
+        [photo setValue:[imageInfo objectForKey:@"id"] forKey:@"photoId"];
         [photo setValue:[imageInfo objectForKey:@"title"] forKey:@"title"];
         [photo setValue:[imageInfo objectForKey:@"url"] forKey:@"url"];
-        NSManagedObject *user = [NSEntityDescription
-                                 insertNewObjectForEntityForName:@"User"
-                                 inManagedObjectContext:context];
-        [user setValue:[imageInfo objectForKey:@"user"] forKey:@"userNumber"];
-        [photo setValue:user forKey:@"user"];
+        
+        
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        [request setEntity:[NSEntityDescription entityForName:@"User" inManagedObjectContext:context]];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userNumber == %@",[imageInfo objectForKey:@"user"]];
+        [request setPredicate:predicate];
+        NSError *userFetchingError;
+        
+        NSArray *existingUsers=[context executeFetchRequest:request error:&userFetchingError];
+        
+        if([existingUsers count]>0) {
+             [photo setValue:existingUsers[0] forKey:@"user"];
+        } else {
+        
+            NSManagedObject *user = [NSEntityDescription
+                                     insertNewObjectForEntityForName:@"User"
+                                     inManagedObjectContext:context];
+            [user setValue:[imageInfo objectForKey:@"user"] forKey:@"userNumber"];
+            [photo setValue:user forKey:@"user"];
+        }
         NSError *error;
         if (![context save:&error]) {
             NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);

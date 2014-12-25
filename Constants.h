@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #define URL @"https://raw.githubusercontent.com/rish2cool/IOSChallenge/master/response.json"
+
 #define LIGHT_GRAY_COLOR @"D8D8D8"
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
